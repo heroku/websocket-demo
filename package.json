@@ -1,0 +1,15 @@
+{
+  "name":    "websocket-demo",
+  "version": "0.0.1",
+
+  "dependencies": {
+    "coffee-script":    "1.2.x",
+    "express":          "3.0.x",
+    "nodemon":          "0.7.x",
+    "ws":               "0.4.x"
+  },
+
+  "engines": {
+    "node": "0.10.x"
+  }
+}
