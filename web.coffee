@@ -8,9 +8,6 @@ app = express()
 app.get "/", (req, res) ->
   res.sendfile "#{__dirname}/index.html"
 
-app.get "/engine.io.js", (req, res) ->
-  res.sendfile "#{__dirname}/node_modules/engine.io-client/engine.io.js"
-
 server = http.createServer(app)
 
 server.listen (process.env.PORT || 5000)
