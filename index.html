@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Websocket Example</title>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+      function log(message) {
+        $('#console').append(message + '\n');
+      }
+
+      $(window).ready(function() {
+        var connection = new WebSocket(window.location.href.replace('http://', 'ws://') + '/echo');
+
+        connection.onopen = function() {
+          log('[*] connected');
+        }
+
+        connection.onerror = function(err) {
+          log('[!] error: ' + err);
+        }
+
+        connection.onmessage = function(message) {
+          log('[ ] received: ' + message.data);
+        }
+
+        log('[*] opening: ' + window.location.href.replace('http://', 'ws://') + 'echo');
+
+        $('#input').focus();
+
+        $('#input').on('keypress', function(e) {
+          if (e.keyCode == 13) {
+            var message = $('#input').val()
+            log('[ ] sending: ' + message);
+            connection.send(message);
+            $('#input').val('');
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Websocket Example</h1>
+    <textarea rows="20" cols="80" id="console"></textarea>
+    <br/>
+    <input type="text" id="input" size="100" placeholder="Type Here..." />
+  </body>
+</html>
