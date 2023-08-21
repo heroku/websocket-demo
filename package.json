@@ -4,7 +4,7 @@
 
   "dependencies": {
     "coffee-script":    "1.2.x",
-    "express":          "3.0.x",
+    "express":          "3.3.2",
     "nodemon":          "0.7.x",
     "ws":               "0.4.x"
   },
